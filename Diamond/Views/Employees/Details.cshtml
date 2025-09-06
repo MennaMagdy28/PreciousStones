@@ -1,0 +1,26 @@
+﻿@model Employee
+
+<h1 class="alert alert-warning text-center">
+    Employee Details
+</h1>
+
+<dl class="row">
+    <dt class="col-2">Id</dt>
+    <dd class="col-10">@Model.Id</dd>
+
+    <dt class="col-2">Full Name</dt>
+    <dd class="col-10">@Model.FullName</dd>
+
+    <dt class="col-2">Position</dt>
+    <dd class="col-10">@Model.Position</dd>
+
+    <dt class="col-2">Salary</dt>
+    <dd class="col-10">@Model.Salary</dd>
+
+    <dt class="col-2">Birth Date</dt>
+    <dd class="col-10">@Model.BirthDate.ToString("dd/mm/yyyy")</dd>
+
+    <dt class="col-2">Hiring Date and Time</dt>
+    <dd class="col-10">@Model.HiringDateAndTime</dd>
+</dl>
+<a asp-controller="Employees" asp-action="GetIndexView" class="btn btn-primary col-4 fw-bold">Back to List</a>

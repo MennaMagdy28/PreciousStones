@@ -1,6 +1,55 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@* //Shahd Ashraf Abu El enein Hassan
+//Field of Study: Computer Science
+//Major:Software Engineering
+//Uni: Helwan University
+//Level: 4 *@
+
+@model List<Employee>
+
+<h1 class=" alert alert-success text-center">Employee Index</h1>
+
+<a asp-controller="Employees" asp-action="GetCreateView" class="btn btn-success mb-3">Create New</a>
+
+<form method= "get"  asp-controller="Employees" asp-action="GetIndexView" class="col4">
+    <input type="search" class="form-control" name="search" value="@ViewBag.CurrentSearch"/>
+    <button class="btn btn-secondary" type="submit">
+        <i class="bi bi-search"></i>
+    </button>
+</form>
+@if (Model.Any())
+    {
+        <table class="table table-bordered table-striped table-hover text-center ">
+            <caption class="caption-top text-center fs-3">All Employees</caption>
+            <thead class=" table-dark"><th>Id</th><th>FullName</th><th>Position</th><th>Salary</th><th></th></thead>
+            <tbody>
+            @foreach(var employee in Model)
+            {
+                <tr><td>@employee.Id</td><td>@employee.FullName</td>
+                    <td>@employee.Position</td><td>@employee.Salary</td>
+                    <td class=" btn-group">
+                        <a asp-controller="Employees" asp-action="GetDetailsView" asp-route-id = "@employee.Id" class="btn btn-secondary" title="Details" >
+                            <i class="bi bi-list-ul"></i>
+                        </a>
+                        <a asp-controller="Employees" asp-action="GetDeleteView" asp-route-id="@employee.Id" class="btn btn-danger" title="Delete">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                        <a asp-controller="Employees" asp-action="GetEditView" asp-route-id="@employee.Id" class=" btn btn-primary" title="Edit">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            }
+            </tbody>
+            <tfoot><tr><th colspan="3" style="text-align:right">Total</th><th>@Model.Sum(e=>e.Salary)</th></tr></tfoot>
+
+    </table>
 }
-<h1 class="alert alert-success text-center">Employee Index</h1>
+else
+{
+    <h2 class="alert alert-danger text-center">  There is no employee to display</h2>
+}
+
+@* Name: Menna Magdy Hassan Hassanien
+University/Dep: Helwan/Software Engineering
+Level: 4 *@

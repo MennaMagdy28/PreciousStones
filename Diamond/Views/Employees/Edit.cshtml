@@ -1,0 +1,41 @@
+﻿@model Employee
+<h1 class="alert alert-info text-center">Edit Employee</h1>
+
+<div class="row">
+    <form method="post" asp-controller="Employees" asp-action="EditCurrent" class="col-4">
+        <input type ="hidden" asp-for="Id"/>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div>
+            <label class="form-label">Full Name</label>
+            <input type="text" asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div>
+            <label class="form-label">Position</label>
+            <input type="text" asp-for="Position" class="form-control" />
+            <span asp-validation-for="Position" class="text-danger"></span>
+        </div>
+        <div>
+            <label class="form-label">Salary</label>
+            <input type="number" asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>
+        <div>
+            <label class="form-label">Birth Date </label>
+            <input asp-for="BirthDate" class="form-control" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+        <div>
+            <label class="form-label">Hiring Date and Time</label>
+            <input asp-for="HiringDateAndTime" class="form-control" />
+            <span asp-validation-for="HiringDateAndTime" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary col-12 mt-3">Edit</button>
+        <a asp-controller="Employees" asp-action="GetIndexView" class="btn btn-secondary col-12 mt-1">Back to List</a>
+    </form>
+</div>
+@* //Shahd Ashraf Abu El enein Hassan
+//Field of Study: Computer Science
+//Major:Software Engineering
+//Uni: Helwan University
+//Level: 4 *@
